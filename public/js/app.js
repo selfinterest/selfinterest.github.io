@@ -5,7 +5,7 @@ angular.module("TerrenceWatson", ["ui.router"])
         $stateProvider
             .state("index", {
                 url: "",
-                templateUrl: "index.html",
+                template: "<h2>Test</h2>",
                 controller: "IndexCtrl",
                 resolve: {
                     "posts": ["$http", "$rootScope", "$q", function($http, $rootScope, $q){
@@ -22,6 +22,6 @@ angular.module("TerrenceWatson", ["ui.router"])
     .controller("AppCtrl", ["$scope", "$http", function($scope, $http){
         
     }])
-    .controller("BodyCtrl", ["$scope", function($scope){
+    .controller("IndexCtrl", ["$scope", function($scope){
         
     }])
