@@ -1,0 +1,26 @@
+# Dependencies
+markdown:         redcarpet
+highlighter:      pygments
+
+# Permalinks
+permalink:        pretty
+
+# Setup
+title:              TerrenceWatson.com
+fancyTitle:            'Terrence<br><span style="text-align:right;">Watson</span><br><span style="text-align:right;">.com</span>'
+tagline:          'A Jekyll theme'
+description:      "Simple. Elegant."
+url:              http://www.terrencewatson.com
+
+author:
+  name:           'Terrence Watson'
+  url:            https://twitter.com/TerrenceCWatson
+
+paginate:         2
+paginate_path: "page:num"
+
+# Custom vars
+version:          2.0.0
+
+github:
+  repo:           https://github.com/selfinterest
