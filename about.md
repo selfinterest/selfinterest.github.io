@@ -12,4 +12,5 @@ Terrence C. Watson is a freelance developer of applications for the new web.
 * He really likes Java.
 * He will always choose the best tools for the job and put them all behind a reverse proxy like Nginx.
 * He does not typically speak in the third person.
+* He has an advanced degree in moral philosophy. This makes him *AWESOME*.
 This site runs on Jekyll and is hosted on [Github](https://github.com). 
