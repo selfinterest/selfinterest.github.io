@@ -217,7 +217,8 @@ herbie.makeNoise();  //Herbie says bark!
 2. Converts mistakes into errors. See [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope/Strict_mode).
 3. No more accidental globals. All variables must be declared with `var`.
 4. Improper assignments no longer silently fail, as do improper deletions (i.e. you can't delete Object.prototype).
-5. Functions must be declared at the top of functions or scripts. That is, this is illegal in strict mode:
+5. Functions must be declared at the top of functions or scripts.
+    ##### Example (illegal in strict mode)
  ```javascript
     if(true) {
         function Cat(name) {
