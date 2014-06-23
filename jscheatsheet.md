@@ -105,7 +105,7 @@ herbie.makeNoise();  //Herbie says bark!
     console.log(name); //prints Terrence
  ```
 2.  Variable and function declarations are silently moved to the top of the scope.   
-     ##### Example   
+    ##### Example   
  ```javascript
     function area(length, width) {
         if(length > 2) {
@@ -118,5 +118,3 @@ herbie.makeNoise();  //Herbie says bark!
     area(2, 2); //prints Heather. No error is raised.
     console.log(name); //prints Terrence. The assignment in area was NOT global because the declaration was moved out of the conditional.
  ```
-
-  
