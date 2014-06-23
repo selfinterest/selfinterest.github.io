@@ -10,6 +10,7 @@ title: JavaScript study sheet
        * “prototype” is the object used to build `__proto__` when an object is constructed with new.
        * Prototype is the property of the constructor function from which `__proto__` is created.
        * Which is to say: if a.someFunction === a.`__proto__`.makeNoise, when aConstructor.prototype.someFunction
+4. See [here](http://stackoverflow.com/questions/9959727/proto-vs-prototype-in-javascript)
 
 ##### Example:
                  
