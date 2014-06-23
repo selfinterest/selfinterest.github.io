@@ -2,29 +2,11 @@
 layout: page
 title: About
 ---
+Terrence C. Watson is a freelance developer of applications for the new web. Here are some facts about him:
+* He is the chief developer of [PrimaryDocuments.ca](https://primarydocuments.ca), a project of the [Canadian Constitution Foundation](http://theccf.ca).
+* He used to hate JavaScript, but now he doesn't.
+* He prefers the MEAN stack -- Mongo, Express, Angular, and Node, but he can wield the LAMP stack, too.
+* He really likes Java.
+* He will always choose the best tools for the job and put them all behind Nginx as a reverse proxy.
 
-<p class="message">
-  Hey there! This page is included as an example. Feel free to customize it for your own use upon downloading. Carry on!
-</p>
-
-In the novel, *The Strange Case of Dr. Jeykll and Mr. Hyde*, Mr. Poole is Dr. Jekyll's virtuous and loyal butler. Similarly, Poole is an upstanding and effective butler that helps you build Jekyll themes. It's made by [@mdo](https://twitter.com/mdo).
-
-There are currently two themes built on Poole:
-
-* [Hyde](http://hyde.getpoole.com)
-* [Lanyon](http://lanyon.getpoole.com)
-
-Learn more and contribute on [GitHub](https://github.com/poole).
-
-## Setup
-
-Some fun facts about the setup of this project include:
-
-* Built for [Jekyll](http://jekyllrb.com)
-* Developed on GitHub and hosted for free on [GitHub Pages](https://pages.github.com)
-* Coded with [Sublime Text 2](http://sublimetext.com), an amazing code editor
-* Designed and developed while listening to music like [Blood Bros Trilogy](https://soundcloud.com/maddecent/sets/blood-bros-series)
-
-Have questions or suggestions? Feel free to [open an issue on GitHub](https://github.com/poole/issues/new) or [ask me on Twitter](https://twitter.com/mdo).
-
-Thanks for reading!
+This site runs on Jekyll and is hosted on [Github](https://github.com). 
