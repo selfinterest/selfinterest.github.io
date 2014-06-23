@@ -7,6 +7,9 @@ Terrence C. Watson is a freelance developer of applications for the new web. Her
 *   He used to hate JavaScript, but now he doesn't.
 *   He prefers the MEAN stack -- Mongo, Express, Angular, and Node, but he can wield the LAMP stack, too.
 *   He really likes Java.
-*   He will always choose the best tools for the job and put them all behind Nginx as a reverse proxy.
+*   He will always choose the best tools for the job and put them all behind a reverse proxy like Nginx.
 
+*   Red
+*   Green
+*   Blue
 This site runs on Jekyll and is hosted on [Github](https://github.com). 
