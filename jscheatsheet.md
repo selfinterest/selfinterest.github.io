@@ -88,40 +88,40 @@ herbie.makeNoise();  //Herbie says bark!
         
 ##### Example
       
- ```javascript
-    var name = "Terrence";
-    function area(length, width) {
-        console.log(name);
-        return length * width;
-    }
+                 ```javascript
+                    var name = "Terrence";
+                    function area(length, width) {
+                        console.log(name);
+                        return length * width;
+                    }
 
-    area(2, 2); //prints Terrence
+                    area(2, 2); //prints Terrence
 
-    function area2(length, width) {
-        var name = "Heather";
-        console.log(name);
-        return length * width;   
-    }
-     
-    area2(2, 2); //prints Heather
-    console.log(name); //prints Terrence
- ```
+                    function area2(length, width) {
+                        var name = "Heather";
+                        console.log(name);
+                        return length * width;   
+                    }
+                     
+                    area2(2, 2); //prints Heather
+                    console.log(name); //prints Terrence
+                 ```
 
  2.  Variable and function declarations are silently moved to the top of the scope.
         
 ##### Example
     
- ```javascript
-    function area(length, width) {
-        if(length > 2) {
-            var name;  //the declaration is moved to the top of the function; note that an assignment, e.g. name = "Heather" would not be!
-        }
-        name = "Heather";
-        console.log(name);  //Heather
-    }
-    var name = "Terrence";
-    area(2, 2); //prints Heather. No error is raised.
-    console.log(name); //prints Terrence. The assignment in area was NOT global because the declaration was moved out of the conditional.
- ```
+                 ```javascript
+                    function area(length, width) {
+                        if(length > 2) {
+                            var name;  //the declaration is moved to the top of the function; note that an assignment, e.g. name = "Heather" would not be!
+                        }
+                        name = "Heather";
+                        console.log(name);  //Heather
+                    }
+                    var name = "Terrence";
+                    area(2, 2); //prints Heather. No error is raised.
+                    console.log(name); //prints Terrence. The assignment in area was NOT global because the declaration was moved out of the conditional.
+                 ```
 
   
