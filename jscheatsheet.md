@@ -25,6 +25,7 @@ title: JavaScript study sheet
  var senea = new Cat('Senea');
  senea.makeNoise();   // Senea says meow!
  senea.makeNoise === senea.__proto__.makeNoise;  //is true
+ Cat.prototype.makeNoise === senea.makeNoise; //also true
 
  function Dog(name) {
       this.name = name;
@@ -126,7 +127,7 @@ herbie.makeNoise();  //Herbie says bark!
     2. **Function** -- function not stored, invoked directly.
     3. **Constructor** -- function is invoked with "new".
     4. **Apply/call** -- function is invoked with apply or call.
-    
+
     ##### Example
  ```javascript
     function Cat(name) {
@@ -159,3 +160,48 @@ herbie.makeNoise();  //Herbie says bark!
     amala.makeNoise.apply(senea);  //Senea says meow. "this" is bound to the senea object.
  ```
 3. This can cause problems when a function is executed inside another function. A value assigned to a property of "this" outside the inner function will not be accessible inside that function.
+    ##### Example
+ ```javascript
+
+    //Note, this is a stupid example. There are many better ways of doing this. It's just to demonstrate.
+
+    function purr(){
+        console.log(this.name + " purrs!");
+    }
+
+    function Cat(name, action) {
+        this.name = name;
+        action();
+    }
+    
+    var senea = new Cat("Senea", purr); // prints "undefined purrs";
+
+    function Cat(name, action) {
+        this.name = name;
+        this.action = action;
+        this.action();
+    }
+
+    var senea = new Cat("Senea", purr); // prints "Senea purrs!" -- because of method invocation.
+
+    //However ...
+
+    function Cat(name) {
+        this.name = name;
+    }
+
+    Cat.prototype.doTheThing = function(aThing){
+        console.log(this.name + " is doing: " +aThing());
+    }
+    
+    var senea = new Cat("Senea");
+
+    senea.doTheThing(function(){
+        return "counting the letters in her name: " + this.name;
+    });  // prints "Senea is doing: counting the letters in her name: undefined"
+
+    senea.doTheThing(function(){
+        return "counting the letters in her name: " + this.name;
+    }.bind(senea)); //prints "Senea is doing: counting the letters in her name: senea"
+ ```
+
