@@ -218,8 +218,8 @@ herbie.makeNoise();  //Herbie says bark!
 3. No more accidental globals. All variables must be declared with `var`.
 4. Improper assignments no longer silently fail, as do improper deletions (i.e. you can't delete Object.prototype).
 5. Functions must be declared at the top of functions or scripts.
+
     ##### Example (illegal in strict mode)
-     ##### Example (illegal in strict mode)
  ```javascript
     if(true) {
         function Cat(name) {
