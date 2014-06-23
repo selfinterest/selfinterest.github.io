@@ -110,7 +110,7 @@ herbie.makeNoise();  //Herbie says bark!
  2.  Variable and function declarations are silently moved to the top of the scope.
         
 ##### Example
-
+    
  ```javascript
     function area(length, width) {
         if(length > 2) {
