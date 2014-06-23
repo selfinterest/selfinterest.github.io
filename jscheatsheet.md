@@ -85,9 +85,9 @@ herbie.makeNoise();  //Herbie says bark!
 
 #### Variable hoisting/scope
 1.  JavaScript is a function-scope language.
-       
+        
 ##### Example
-
+      
  ```javascript
 
  var name = "Terrence";
