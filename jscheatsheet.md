@@ -118,3 +118,43 @@ herbie.makeNoise();  //Herbie says bark!
     area(2, 2); //prints Heather. No error is raised.
     console.log(name); //prints Terrence. The assignment in area was NOT global because the declaration was moved out of the conditional.
  ```
+
+#### That tricky this.
+1. In general, the value of "this" is the current scope of execution.
+2. *HOW* a function is invoked determines the value of "this". Crockford sets out four function invocation patterns for JavaScript:
+    1. Method -- function stored as property of an object
+    2. Function -- function not stored, invoked directly.
+    3. Constructor -- function is invoked with "new".
+    4. Apply/call -- function is invoked with apply or call.
+    ##### Example
+ ```javascript
+    function Cat(name) {
+        this.name = name;
+    }
+
+    //Function invocation pattern
+    var cat = Cat("Senea");
+    console.log(this.name); //prints Senea -- oops, in Cat, "this" was bound to global scope!
+    
+    delete this.name;   //remove the errant property. this.name is now undefined.
+
+    var senea = new Cat("Senea");    //constructor invocation
+    console.log(this.name);     //is undefined.
+    console.log(senea.name);      //Senea
+
+    senea.makeNoise = function() {
+        console.log(this.name + " says meow!");
+    }
+
+    senea.makeNoise();            //Senea says meow. "this" is bound to the senea object.
+
+    //Apply/call
+    var amala = new Cat("Amala");
+    amala.makeNoise = function() {
+        console.log(this.name + " says meow!");
+    }
+
+    amala.makeNoise();     //Amala says meow. "this" is bound to the amala object.
+    amala.makeNoise.apply(senea);  //Senea says meow. "this" is bound to the senea object.
+ ```
+3. This can cause problems when a function is executed inside another function. A value assigned to a property of "this" outside the inner function will not be accessible inside that function.
