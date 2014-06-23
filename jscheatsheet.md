@@ -37,9 +37,9 @@ title: JavaScript study sheet
  kacy.makeNoise();  // Kacy says bark!
  kacy.makeNoise === kacy.__proto__.makeNoise; //is false, because makeNoise is not part of Dog's prototype
  console.log(typeof kacy.__proto__.makeNoise); //should be undefined
-```
+ ```
 ##### Example 2 -- making cats bark:
-```javascript                   
+ ```javascript                  
 function Cat(name) {
    this.name = name;
 }
@@ -77,4 +77,4 @@ amala.makeNoise();  //Amala says bark!
 
 var herbie = new Cat('Herbie');
 herbie.makeNoise();  //Herbie says bark!
-```
+ ```
