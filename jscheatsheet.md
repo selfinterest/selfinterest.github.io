@@ -85,7 +85,7 @@ herbie.makeNoise();  //Herbie says bark!
  ```
 
 #### Variable hoisting/scope
-1.  JavaScript is a function-scope language.    
+1.  JavaScript has [function-level scope](http://www.adequatelygood.com/JavaScript-Scoping-and-Hoisting.html).
     ##### Example  
  ```javascript
     var name = "Terrence";
@@ -104,6 +104,13 @@ herbie.makeNoise();  //Herbie says bark!
      
     area2(2, 2); //prints Heather
     console.log(name); //prints Terrence
+    
+    var name = "Terrence";
+    if(true) {
+       var name = "Heather";
+    }
+
+    console.log(name);  //prints Heather
  ```
 2.  Variable and function declarations are silently moved to the top of the scope.   
     ##### Example   
@@ -205,3 +212,15 @@ herbie.makeNoise();  //Herbie says bark!
     }.bind(senea)); //prints "Senea is doing: counting the letters in her name: senea"
  ```
 
+#### Strict mode
+1. "use strict";
+2. Converts mistakes into errors. See [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope/Strict_mode).
+3. No more accidental globals. All variables must be declared with `var`.
+4. Improper assignments no longer silently fail, as do improper deletions (i.e. you can't delete Object.prototype).
+5. Functions must be declared at the top of functions or scripts. That is, this is illegal in strict mode:
+ ```javascript
+    if(true) {
+        function Cat(name) {
+            this.name = name;
+        }
+    }
