@@ -6,10 +6,10 @@ title: JavaScript study sheet
 1.   Prototypical inheritance, not class based (though classes can be simulated.)
 2.   Objects are created from constructor functions using the new keyword (and functions are themselves objects.)
 3.   The difference between __proto__ and prototype:
-       *  __proto__ is the actual object used in the lookup chain to resolve methods, etc.
-       * “prototype” is the object used to build __proto__ when an object is constructed with new.
-       * Prototype is the property of the constructor function from which __proto__ is created.
-       * Which is to say: if a.someFunction === a.__proto__.makeNoise, when aConstructor.prototype.someFunction
+       *  `__proto__` is the actual object used in the lookup chain to resolve methods, etc.
+       * “prototype” is the object used to build `__proto__` when an object is constructed with new.
+       * Prototype is the property of the constructor function from which `__proto__` is created.
+       * Which is to say: if a.someFunction === a.`__proto__`.makeNoise, when aConstructor.prototype.someFunction
        Example:
        ` function Cat(name) {
               this.name = name;
