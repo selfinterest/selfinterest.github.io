@@ -104,8 +104,8 @@ herbie.makeNoise();  //Herbie says bark!
     area2(2, 2); //prints Heather
     console.log(name); //prints Terrence
  ```
- 2.  Variable and function declarations are silently moved to the top of the scope.   
-      ##### Example   
+2.  Variable and function declarations are silently moved to the top of the scope.   
+     ##### Example   
  ```javascript
     function area(length, width) {
         if(length > 2) {
