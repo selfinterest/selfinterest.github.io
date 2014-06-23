@@ -10,15 +10,14 @@ angular.module("TerrenceWatson", ["ui.router"])
         $stateProvider
             .state("index", {
                 url: "",
-                template: "<h2>Test</h2>",
+                templateUrl: "/public/templates/index.html",
                 controller: "IndexCtrl",
                 resolve: {
                     "posts": ["$http", "$rootScope", "$q", function($http, $rootScope, $q){
                         var deferred = $q.defer();
                         $http.get("/posts.json").success(function(data){
-                            console.log(data);
-                            $rootScope.posts = data;
-                            deferred.resolve(data);
+                            $rootScope.data = data[0];
+                            deferred.resolve(data[0].posts);
                         });
                         return deferred.promise;
                     }]
@@ -30,4 +29,5 @@ angular.module("TerrenceWatson", ["ui.router"])
     }])
     .controller("IndexCtrl", ["$scope", "posts", function($scope, posts){
         console.log(posts);
+        $scope.posts = posts;
     }])
