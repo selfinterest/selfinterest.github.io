@@ -11,34 +11,34 @@ title: JavaScript study sheet
        * Prototype is the property of the constructor function from which `__proto__` is created.
        * Which is to say: if a.someFunction === a.`__proto__`.makeNoise, when aConstructor.prototype.someFunction
 
-             ##### Example:
+##### Example:
                  
-                 function Cat(name) {
-                      this.name = name;
-                      this.noise = "meow!"
-                 }
-                  Cat.prototype.makeNoise = function () {
-                       console.log(this.name + " says " + this.noise );
-                  }
-                 var senea = new Cat('Senea');
-                 senea.makeNoise();   // Senea says meow!
-                 senea.makeNoise === senea.__proto__.makeNoise;  //is true
+                     function Cat(name) {
+                          this.name = name;
+                          this.noise = "meow!"
+                     }
+                      Cat.prototype.makeNoise = function () {
+                           console.log(this.name + " says " + this.noise );
+                      }
+                     var senea = new Cat('Senea');
+                     senea.makeNoise();   // Senea says meow!
+                     senea.makeNoise === senea.__proto__.makeNoise;  //is true
 
-                 function Dog(name) {
-                      this.name = name;
-                      this.noise = "bark!";
-                 }
+                     function Dog(name) {
+                          this.name = name;
+                          this.noise = "bark!";
+                     }
 
-                 var kacy = new Dog("Kacy");
-                 kacy.makeNoise = function(){
-                     console.log(this.name + " says " + this.noise);
-                 }
+                     var kacy = new Dog("Kacy");
+                     kacy.makeNoise = function(){
+                         console.log(this.name + " says " + this.noise);
+                     }
 
-                 kacy.makeNoise();  // Kacy says bark!
-                 kacy.makeNoise === kacy.__proto__.makeNoise; //is false, because makeNoise is not part of Dog's prototype
-                 console.log(typeof kacy.__proto__.makeNoise); //should be undefined
+                     kacy.makeNoise();  // Kacy says bark!
+                     kacy.makeNoise === kacy.__proto__.makeNoise; //is false, because makeNoise is not part of Dog's prototype
+                     console.log(typeof kacy.__proto__.makeNoise); //should be undefined
 
-             ##### Example 2 -- making cats bark:
+##### Example 2 -- making cats bark:
                    
                    function Cat(name) {
                        this.name = name;
