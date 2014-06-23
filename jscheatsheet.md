@@ -122,10 +122,11 @@ herbie.makeNoise();  //Herbie says bark!
 #### That tricky this.
 1. In general, the value of "this" is the current scope of execution.
 2. *HOW* a function is invoked determines the value of "this". Crockford sets out four function invocation patterns for JavaScript:
-    1. Method -- function stored as property of an object
-    2. Function -- function not stored, invoked directly.
-    3. Constructor -- function is invoked with "new".
-    4. Apply/call -- function is invoked with apply or call.
+    1. **Method** -- function stored as property of an object
+    2. **Function** -- function not stored, invoked directly.
+    3. **Constructor** -- function is invoked with "new".
+    4. **Apply/call** -- function is invoked with apply or call.
+    
     ##### Example
  ```javascript
     function Cat(name) {
