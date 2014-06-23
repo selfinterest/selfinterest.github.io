@@ -1,9 +1,4 @@
 angular.module("TerrenceWatson", ["ui.router"])
-    .config(["$interpolateProvider", function($interpolateProvider){
-        //Override the interpolate symbols because Jekyll uses {{ }} fot its own interpolation.
-        $interpolateProvider.startSymbol("//");
-        $interpolateProvider.endSymbol("//");
-    }])
     .config(["$locationProvider", "$stateProvider", "$urlRouterProvider",  function($locationProvider, $stateProvider, $urlRouterProvider){
         $locationProvider.html5Mode(false);
         $urlRouterProvider.otherwise("/blog");
@@ -16,8 +11,13 @@ angular.module("TerrenceWatson", ["ui.router"])
                     "posts": ["$http", "$rootScope", "$q", function($http, $rootScope, $q){
                         var deferred = $q.defer();
                         $http.get("/posts.json").success(function(data){
+<<<<<<< HEAD
                             $rootScope.data = data[0];
                             deferred.resolve(data[0].posts);
+=======
+                            $rootScope.posts = data;
+                            deferred.resolve(data);
+>>>>>>> parent of 05f91bb... About to change template
                         });
                         return deferred.promise;
                     }]
@@ -27,7 +27,12 @@ angular.module("TerrenceWatson", ["ui.router"])
     .controller("AppCtrl", ["$scope", "$http", function($scope, $http){
         
     }])
+<<<<<<< HEAD
     .controller("IndexCtrl", ["$scope", "posts", function($scope, posts){
         console.log(posts);
         $scope.posts = posts;
+=======
+    .controller("IndexCtrl", ["$scope", function($scope){
+        
+>>>>>>> parent of 05f91bb... About to change template
     }])
