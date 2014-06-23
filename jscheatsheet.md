@@ -3,7 +3,7 @@ layout: page
 title: JavaScript study sheet
 ---
 #### Inheritance
-1.   Prototypical inheritance, not class based (though classes can be simulated.)
+1.   Prototypal inheritance, not class based (though classes can be simulated.)
 2.   Objects are created from constructor functions using the new keyword (and functions are themselves objects.)
 3.   The difference between `__proto__` and prototype:
        *  `__proto__` is the actual object used in the lookup chain to resolve methods, etc.
