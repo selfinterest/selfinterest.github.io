@@ -5,85 +5,96 @@ title: JavaScript study sheet
 #### Inheritance
 1.   Prototypal inheritance, not class based (though classes can be simulated.)
 2.   Objects are created from constructor functions using the new keyword (and functions are themselves objects.)
-3.   The difference between `__proto__` and prototype:
-       *  `__proto__` is the actual object used in the lookup chain to resolve methods, etc.
-       * “prototype” is the object used to build `__proto__` when an object is constructed with new.
-       * Prototype is the property of the constructor function from which `__proto__` is created.
-       * Which is to say: if a.someFunction === a.`__proto__`.makeNoise, when aConstructor.prototype.someFunction
-4. See [here](http://stackoverflow.com/questions/9959727/proto-vs-prototype-in-javascript)
+3.   See [here](http://stackoverflow.com/questions/9959727/proto-vs-prototype-in-javascript)
+4.   Simplified picture of JavaScript inheritance:
+        1.   A constructor function is created.
+        ```javascript
+            function Cat (name) {
+                this.name = name;
+            }
 
-##### Example:
-                 
- ```javascript
- function Cat(name) {
-      this.name = name;
-      this.noise = "meow!"
- }
-  Cat.prototype.makeNoise = function () {
-       console.log(this.name + " says " + this.noise );
-  }
- var senea = new Cat('Senea');
- senea.makeNoise();   // Senea says meow!
- senea.makeNoise === senea.__proto__.makeNoise;  //is true
- Cat.prototype.makeNoise === senea.makeNoise; //also true
-
- function Dog(name) {
-      this.name = name;
-      this.noise = "bark!";
- }
-
- var kacy = new Dog("Kacy");
- kacy.makeNoise = function(){
-     console.log(this.name + " says " + this.noise);
- }
-
- kacy.makeNoise();  // Kacy says bark!
- kacy.makeNoise === kacy.__proto__.makeNoise; //is false, because makeNoise is not part of Dog's prototype
- console.log(typeof kacy.__proto__.makeNoise); //should be undefined
- ```
-
-##### Example 2 -- making cats bark:
-
- ```javascript
-function Cat(name) {
-   this.name = name;
-}
-
-Cat.prototype.noise = "meow!";
-
-Cat.prototype.makeNoise = function() {
-   console.log(this.name + " says " + this.noise);
-}
-
-var senea = new Cat('Senea');
-senea.makeNoise();  //Senea says meow!
-
-function Dog(name) {
-   this.name = name; 
-}
-
-Dog.prototype.noise = "bark!";
-
-Dog.prototype.makeNoise = Cat.prototype.makeNoise;
-
-var kacy = new Dog('Kacy');
-kacy.makeNoise();  //Kacy says bark!
-
-//Now make Senea bark
-senea.__proto__ = kacy.__proto__;
-senea.makeNoise();  //Senea says bark!
-
-var amala = new Cat('Amala');
-amala.makeNoise();  //Amala says meow!
-
-//Make all cats bark
-Cat.prototype.noise = "bark!";
-amala.makeNoise();  //Amala says bark!
-
-var herbie = new Cat('Herbie');
-herbie.makeNoise();  //Herbie says bark!
- ```
-
+            Cat.__proto__ === Function.__proto;     //true
+            Cat instanceof Cat;                                 //false
+            Cat instanceof Function;                        //true
+            Cat instanceof Object;                           //true
+        ```
+        2.  The constructor function is invoked with the `new` keyword.
+        ```javascript
+            var senea = new Cat("Senea");
+            Cat.__proto__ === senea.__proto__;    //false
+            Cat.prototype === senea.__proto__;   //true -- Cat.prototype and senea.__proto__ are the SAME OBJECT
+            senea instanceof Cat;                           //true
+            senea instanceof Function;                   //false
+            senea instanceof Object;                      //true
+        ```
+        3.  The new object has a `__proto__` property. This property points to the prototype property of the immediate constructor.
+        ```javascript
+            Cat.prototype.noise = "meow!";            //notice that we can change the prototype after senea has been created
+            console.log(senea.noise);                      //meow!
+            console.log(senea.__proto__.noise);      //meow!
+        ```
+        4.  Properties of the object that were/are not properties of the constructor's prototype will NOT be found on `__proto__`
+        ```javascript
+            console.log(senea.name);                    //Senea
+            typeof senea.__proto__.name;            //undefined
+            typeof Cat.prototype.name;               //undefined
+        ```
+        5.  `__proto__` is an object, and hence has its own `__proto__` property. This points not to Cat's prototype, but to the prototype of the object from which Cat was constructed.
+        ```javascript
+            senea.__proto__.__proto__;                    //empty object {}
+            senea.__proto__.__proto__.type = "animal";          //a Senea is a type of animal
+            console.log(senea.type);                        //animal
+            console.log(Cat.type);                            //animal
+        ```
+        6.  When a property look up is done on an object, and that object doesn't itself have the property, the search moves up the *prototype* chain until the property is found (and if it isn't found, undefined is returned.)
+        ```javascript
+            //Let's be more specific.
+            Cat.prototype.type = "cat";
+            console.log(Cat.type);                            //still animal, but...
+            console.log(senea.type);                        //cat! we defined "type" on the Cat.prototype, so that was found first.
+            senea.type = "SeneaBeast";
+            console.log(senea.type);                        //SeneaBeast. Now the property is found immediately. No need to go up.
+            //Note: this is not how you would normally do things; it's just a cool demonstration.
+        ```
+        7.  Aside from prototype and __proto__, every object keeps a reference to its actual constructor function in its constructor property.
+        ```javascript
+            senea.constructor;                                    //Cat
+            senea.constructor.prototype.class  = "feline";
+            senea.class;                                              //feline
+        ```
+        8.  We can, therefore, do something more like inheritance in class based languages.
+        ```javascript
+            function Kitten(name, age) {
+                 this.age = age;
+                 Kitten._super.call(this, name, age);    //Call the super constructor, i.e. Cat
+            }
+            Kitten.prototype = senea;                       //We set the prototype to a created object
+            Kitten._super = senea.constructor;         //We set a reference to Senea's constructor function
+            var amala = new Kitten("Amala", 2);
+            console.log(amala.name);                        //Amala
+            console.log(amala.age);                           //2
+            console.log(amala.class);                         //feline -- yes, these properties, too
+            console.log(amala.type);                          //animal -- NOT SeneaBeast
+            //And, last but not least...
+            console.log(amala.noise);                        //meow!
+        ```
+        9.  But wouldn't age also be relevant to cats as well as kittens? Sure. Let's do this.
+        ```javascript
+            Cat.prototype.age = "unknown";
+            console.log(senea.age);                            //unknown
+            console.log(amala.age);                            //2
+            Cat.prototype.sayAge = function(){
+                console.log("My name is " + this.name + " and my age is " + this.age + ". " + this.noise);
+            }
+            senea.sayAge();                                         //"My name is Senea and my age is unknown. Meow!"
+            amala.sayAge();                                         //"My name is Amala and my age is 2. Meow!"
+        10. Make all cats bark
+        ```javascript
+            Cat.prototype.noise = "bark!";
+            senea.age = 4;
+            senea.sayAge();                                         //"My name is Senea and my age is 4. Bark!"
+            amala.sayAge();                                         //"My name is Amala and my age is 2. Bark!"
+        ```
 #### Variable hoisting/scope
 1.  JavaScript has [function-level scope](http://www.adequatelygood.com/JavaScript-Scoping-and-Hoisting.html).
     ##### Example  
