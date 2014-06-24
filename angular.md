@@ -4,6 +4,7 @@ title: Angular study sheet
 ---
 #### Difference between factory, service, and provider
 [Plunkr](http://plnkr.co/IKiVOU)
+
 See [also.](http://tylermcginnis.com/angularjs-factory-vs-service-vs-provider/)
 
 An Angular factory can return any type (Function, Number, String.) Whatever is returned is what is used when the factory is injected. Hence, you can easily use a JavaScript constructor function, and instantiate new copies within controllers or other services.
