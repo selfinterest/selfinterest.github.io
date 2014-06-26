@@ -23,6 +23,7 @@ Spontaneous Order & A Million Acts of Care
 ----------------------------------------------------------
 Bringing me to Martin's book. I haven't finished it yet. I loved the forward; especially this quotation:
 > Quality is the result of a million selfless acts of care -- not just any great method that descends from the heavens.
+
 The reference need not to a million acts of a single individual, but to many different acts by many different people. If care is lacking from one or two of those acts, the difference in quality may be negligible. If there is a pervasive lack of care, disaster will result.
 
 How to explain this? F.A. Hayek described [spontaneous order](http://en.wikipedia.org/wiki/Spontaneous_order), the idea of an overall order emerging from the acts of individuals, most or all of whom did not seek to create that order. A million selfless acts of care *add up to* something that is *more than* the sum of all those choices.
