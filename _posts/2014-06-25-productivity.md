@@ -6,7 +6,7 @@ title: JavaScript and clean coding
 
 **tl;dr** An expressive, loosely-typed language, like JavaScript, can only be used in a large scale project if standards, however arbitrary, are rigorously and ruthlessly enforced.
 
-Lately, I've been reading Robert C. Martin's [book](http://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship-ebook/dp/B001GSTOAM/ref=sr_1_1?ie=UTF8&qid=1403746623&sr=8-1&keywords=clean+coding) *Clean Coding*. I've also been engaged in a long-running discussion with a very knowledgeable friend about the merits of Node.js compared to Java for large scale applications.
+Lately, I've been reading Robert C. Martin's [book](http://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship-ebook/dp/B001GSTOAM/ref=sr_1_1?ie=UTF8&qid=1403746623&sr=8-1&keywords=clean+coding) *Clean Code*. I've also been engaged in a long-running discussion with a very knowledgeable friend about the merits of Node.js compared to Java for large scale applications.
 
 He's not a fan of Node. My guess is that Martin wouldn't like it much either. But I am unsure.
 
