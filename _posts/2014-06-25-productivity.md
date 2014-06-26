@@ -22,7 +22,7 @@ Sure. But a single devious or supremely incompetent developer is not the problem
 Spontaneous Order & A Million Acts of Care
 ----------------------------------------------------------
 Bringing me to Martin's book. I haven't finished it yet. I loved the forward; especially this quotation:
-> Quality is the result of a million selfless acts of care -- not just any great method that descends from the heavens.
+    > Quality is the result of a million selfless acts of care -- not just any great method that descends from the heavens.
 
 The reference need not to a million acts of a single individual, but to many different acts by many different people. If care is lacking from one or two of those acts, the difference in quality may be negligible. If there is a pervasive lack of care, disaster will result.
 
