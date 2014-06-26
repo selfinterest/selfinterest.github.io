@@ -30,7 +30,9 @@ How to explain this? F.A. Hayek described [spontaneous order](http://en.wikipedi
 
 Conversely, too many "isolated" uncaring acts can corrupt a process and undermine the final product, without any individual actor being grossly incompetent or malicious. All that is required is a sufficient number of uncaring acts, each isolated from all the others. The more collaborators there are, the more this can occur -- that is, unless team discipline prevents uncaring acts, or provides a fix for them before their effects multiply.
 
-That's why my equation looks like it does. Other things being equal -- and this has been true in my experience -- the more collaborators there are, the more discipline will be required after a certain point to maintain productivity.
+Let's just call this effect -- lots of individual acts making a product worse than any individual actor intended, and even making the product worse than the competence or incompetence of any individual actor can explain -- *spontaneous disorder.* For proof that spontaneous disorder exists, I invite the reader to witness a meeting of any academic committee.
+
+Collaborators vs. team (or average) discipline -- that explains part of my equation. There comes a point where average discipline is insufficient to overcome the sheer entropic impact of the combined interactions of the actors. Nothing can be done about that except to maintain discipline, and for that, Martin's book is an excellent place to start.
 
 Spontaneous Disorder In Spite of Discipline
 -------------------------------------------------------
