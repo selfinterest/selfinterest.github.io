@@ -1,5 +1,5 @@
 ---
-layout: Post
+layout: post
 title: An Angular demo...
 ---
 ... that combines a factory, a provider, a service, a directive, transclusion, JavaScript inheritance, and CATS!
