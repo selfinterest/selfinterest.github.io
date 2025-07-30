@@ -55,6 +55,8 @@ class TerminalEffect {
                 this.playTerminalSound();
             });
         });
+        // Add hamburger menu functionality
+        this.initHamburgerMenu();
     }
     createCursorBlink() {
         const cursor = document.querySelector('.animate-cursor-blink');
@@ -82,6 +84,32 @@ class TerminalEffect {
         gainNode.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 0.1);
         oscillator.start(audioContext.currentTime);
         oscillator.stop(audioContext.currentTime + 0.1);
+    }
+    initHamburgerMenu() {
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const mobileNav = document.getElementById('mobile-nav');
+        if (hamburgerBtn && mobileNav) {
+            hamburgerBtn.addEventListener('click', () => {
+                hamburgerBtn.classList.toggle('active');
+                mobileNav.classList.toggle('active');
+            });
+            // Close menu when clicking on nav links
+            const navLinks = mobileNav.querySelectorAll('a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburgerBtn.classList.remove('active');
+                    mobileNav.classList.remove('active');
+                });
+            });
+            // Close menu when clicking outside
+            document.addEventListener('click', (event) => {
+                const target = event.target;
+                if (!hamburgerBtn.contains(target) && !mobileNav.contains(target)) {
+                    hamburgerBtn.classList.remove('active');
+                    mobileNav.classList.remove('active');
+                }
+            });
+        }
     }
 }
 // Terminal typing effect for headers

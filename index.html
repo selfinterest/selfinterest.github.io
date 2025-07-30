@@ -75,12 +75,30 @@
             <div class="text-xl font-display glow">
                 > katey.dev_
             </div>
-            <div class="flex space-x-8 text-sm">
+            
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex space-x-8 text-sm">
                 <a href="#about" class="hover:text-crt-green-dim transition-colors">about</a>
                 <a href="#projects" class="hover:text-crt-green-dim transition-colors">projects</a>
                 <a href="#contact" class="hover:text-crt-green-dim transition-colors">contact</a>
             </div>
+            
+            <!-- Mobile Hamburger Button -->
+            <button class="md:hidden hamburger-btn" id="hamburger-btn" type="button">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
         </nav>
+        
+        <!-- Mobile Navigation Menu -->
+        <div class="md:hidden mobile-nav" id="mobile-nav">
+            <div class="px-6 py-4 space-y-4 border-t border-crt-green-dim bg-crt-dark">
+                <a href="#about" class="block text-sm hover:text-crt-green-dim transition-colors">about</a>
+                <a href="#projects" class="block text-sm hover:text-crt-green-dim transition-colors">projects</a>
+                <a href="#contact" class="block text-sm hover:text-crt-green-dim transition-colors">contact</a>
+            </div>
+        </div>
     </header>
 
     <!-- Hero Section -->
