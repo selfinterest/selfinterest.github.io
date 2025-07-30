@@ -1,3 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 class TerminalEffect {
     constructor() {
         this.elements = document.querySelectorAll('[data-terminal]');
@@ -149,4 +151,3 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.opacity = Math.random() > 0.99 ? '0.98' : '1';
     }, 100);
 });
-export {};
