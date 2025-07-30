@@ -1,5 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 class TerminalEffect {
     constructor() {
         this.elements = document.querySelectorAll('[data-terminal]');
@@ -40,9 +38,7 @@ class TerminalEffect {
         });
     }
     addInteractiveElements() {
-        // Add cursor blink to status
         this.createCursorBlink();
-        // Add hover effects to project cards
         document.querySelectorAll('.card-crt').forEach(card => {
             card.addEventListener('mouseenter', () => {
                 this.addGlowEffect(card);
@@ -51,13 +47,11 @@ class TerminalEffect {
                 this.removeGlowEffect(card);
             });
         });
-        // Make buttons more interactive
         document.querySelectorAll('.btn-crt').forEach(btn => {
             btn.addEventListener('mouseenter', () => {
                 this.playTerminalSound();
             });
         });
-        // Add hamburger menu functionality
         this.initHamburgerMenu();
     }
     createCursorBlink() {
@@ -75,7 +69,6 @@ class TerminalEffect {
         element.style.transform = 'translateY(0)';
     }
     playTerminalSound() {
-        // Create a subtle audio feedback (optional)
         const audioContext = new (window.AudioContext || window.webkitAudioContext)();
         const oscillator = audioContext.createOscillator();
         const gainNode = audioContext.createGain();
@@ -95,7 +88,6 @@ class TerminalEffect {
                 hamburgerBtn.classList.toggle('active');
                 mobileNav.classList.toggle('active');
             });
-            // Close menu when clicking on nav links
             const navLinks = mobileNav.querySelectorAll('a');
             navLinks.forEach(link => {
                 link.addEventListener('click', () => {
@@ -103,7 +95,6 @@ class TerminalEffect {
                     mobileNav.classList.remove('active');
                 });
             });
-            // Close menu when clicking outside
             document.addEventListener('click', (event) => {
                 const target = event.target;
                 if (!hamburgerBtn.contains(target) && !mobileNav.contains(target)) {
@@ -114,7 +105,6 @@ class TerminalEffect {
         }
     }
 }
-// Terminal typing effect for headers
 class TerminalTyper {
     constructor(element, speed = 100) {
         this.index = 0;
@@ -136,18 +126,16 @@ class TerminalTyper {
         }
     }
 }
-// Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     new TerminalEffect();
-    // Add typing effect to main heading
     const mainHeading = document.querySelector('h1');
     if (mainHeading) {
         setTimeout(() => {
             new TerminalTyper(mainHeading, 80);
         }, 500);
     }
-    // Add subtle CRT flicker effect
     setInterval(() => {
         document.body.style.opacity = Math.random() > 0.99 ? '0.98' : '1';
     }, 100);
 });
+export {};
